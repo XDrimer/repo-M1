@@ -107,7 +107,9 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false); //nada porque food es false y el if no se ejecuta
+getFood(false); //undefined porque el hoisting de snack se va hacia arriba del if pero
+//no entra al mismo, entonces snack queda undefined y lo RETORNA, el 
+//meow mix no se usa porque es solo el return de la funcion
 
 //----------------------------------------------------------------------------------------------------------------
 

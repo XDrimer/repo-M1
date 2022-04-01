@@ -4,18 +4,30 @@
 // de forma iterativa pero esto último no es obligatorio.
 
 function nFactorial(n) {
-  // devolvé el factorial de n (n!)
-  // ej:
-  // el factorial de 3 es 6 (3 * 2 * 1)
+    // devolvé el factorial de n (n!)
+    // ej:
+    // el factorial de 3 es 6 (3 * 2 * 1)
+    if (n >= 0 && n < 2) {
+        return 1;
+    } else {
+        return n * nFactorial(n - 1)
+    }
 }
 
 function nFibonacci(n) {
-  // Secuencia de Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
-  // Retorna el enésimo numero de la serie
-  // nFibonacci(0) // 0  // el elemento 0 es cero
-  // nFibonacci(1) // 1 // el elemento 1 es 1
-  // nFibonacci(6) // 1 // el elemento 6 es 8
+    // Secuencia de Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
+    // Retorna el enésimo numero de la serie
+    // nFibonacci(0) // 0  // el elemento 0 es cero
+    // nFibonacci(1) // 1 // el elemento 1 es 1
+    // nFibonacci(6) // 1 // el elemento 6 es 8
+    //nFibonacci(0) = 0;
+    //nFibonacci(1) = 1;
 
+    if (n >= 0 && n < 2) {
+        return n;
+    } else {
+        return nFibonacci(n - 1) + nFibonacci(n - 2)
+    }
 }
 
 // Para esta parte no es necesario utilizar recursión.
@@ -25,6 +37,51 @@ function nFibonacci(n) {
 // size: Devuelve el número de elementos que contiene la queue.
 
 function Queue() {
+    this.queue = [];
+
+    this.enqueue = function(x) {
+        this.queue.unshift(x);
+    }
+
+    this.dequeue = function() {
+        if (this.size() > 0) {
+            return this.queue.pop();
+        } else {
+            return undefined;
+        }
+    }
+
+    this.size = function() {
+        return this.queue.length;
+    }
+
+    /* class Queue {
+         constructor() {
+             this.queue = [];
+         }
+
+         enqueue(x) {
+             this.queue.unshift(x);
+         }
+
+         dequeue() {
+             if (this.size() > 0) {
+                 return this.queue.pop();
+             } else {
+                 return undefined;
+             }
+         }
+
+         size() {
+             return this.queue.length;
+         }
+
+     }*COMO DEBERIA SER CON CLASE*/
+
+
+
+
+
 
 }
 
@@ -32,7 +89,7 @@ function Queue() {
 // --------------------------------
 
 module.exports = {
-  Queue,
-  nFactorial,
-  nFibonacci
+    Queue,
+    nFactorial,
+    nFibonacci
 };

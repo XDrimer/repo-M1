@@ -39,11 +39,11 @@ function nFibonacci(n) {
 function Queue() {
     this.queue = [];
 
-    this.enqueue = function(x) {
+    Queue.prototype.enqueue = function(x) {
         this.queue.unshift(x);
     }
 
-    this.dequeue = function() {
+    Queue.prototype.dequeue = function() {
         if (this.size() > 0) {
             return this.queue.pop();
         } else {
@@ -51,7 +51,7 @@ function Queue() {
         }
     }
 
-    this.size = function() {
+    Queue.prototype.size = function() {
         return this.queue.length;
     }
 
